@@ -7,12 +7,8 @@ def mkdir(path):
     path=path.strip()
     # 去除尾部 \ 符号
     path=path.rstrip("\\")
- 
     # 判断路径是否存在
-    # 存在     True
-    # 不存在   False
     isExists=os.path.exists(path)
- 
     # 判断结果
     if not isExists:
         # 如果不存在则创建目录
@@ -111,7 +107,10 @@ for each_line in document:
                     item1 = '编号'
                     item2 = each_line.split()[0]
                     item3 = each_line.split()[1]
-                item6 = item5
+                    item5 = each_line.split()[2].split('-', 1)[0]
+                    item6 = each_line.split()[3]
+                else:
+                    item6 = item5
             item7 = time
             item = [item1,item2,item3,item4,item5,item6,item7]
             if item[4].isdigit() == True: #判断预估时间是否是数字
