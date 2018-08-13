@@ -11,17 +11,17 @@ def cmd(args):
 
 print(cmd)
 
-dstDir= "./MahjongLobbyCommon"
+dstDir= "./VUL-project"
 if os.path.exists(dstDir) == False:#如果没有，则clone下
 	# os.system("mkdir -p %s"%(dstDir))
-    cmd = cmd = ("git clone clone git@git.code4.in:Mahjong.jx/MahjongLobbyCommon.git %s"%(dstDir))
+    cmd = cmd = ("git clone clone https://github.com/958809860/VUL-project.git %s"%(dstDir))
 os.chdir(dstDir)
 os.system("pwd")
 try:
     cmd = "git pull"
     print(cmd)
     os.system(cmd)
-    print("MahjongLobbyCommon-git pull 完成!!")
+    print("VUL-project-git pull 完成!!")
 except BaseException as e:
     print("git pull error！")
     wait = input()
