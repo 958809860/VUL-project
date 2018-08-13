@@ -25,6 +25,6 @@ try:
 except BaseException as e:
     print("git pull error！")
     wait = input()
-
-cmd = "start table"
+os.chdir(cwd)
+cmd = "start VUL-project"
 os.system(cmd)
