@@ -148,4 +148,5 @@ except PermissionError:
     cmd = "start moring/moring记录.xlsx"
     print(cmd)
     os.system(cmd)
+
 wait = input()
