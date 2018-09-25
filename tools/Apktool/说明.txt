@@ -1,0 +1,3 @@
+1、进入比如app-release.apk所在目录
+2、然后运行apktool d app-release.apk
+3、默认解压的文件就在app-release.apk所在目录
