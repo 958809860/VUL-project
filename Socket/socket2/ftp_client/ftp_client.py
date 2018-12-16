@@ -3,8 +3,6 @@ import json
 import os
 #client.connect(('192.168.16.200',9999))
 
-
-
 class FtpClient(object):
     def __init__(self):
         self.client = socket.socket()
@@ -58,7 +56,6 @@ class FtpClient(object):
     def cmd_get(self):
         pass
 
-
 ftp = FtpClient()
-ftp.connect("localhost",9999)
+ftp.connect("localhost",8888)
 ftp.interactive()

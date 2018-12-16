@@ -8,10 +8,12 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
         cmd_dic = args[0]
         filename = cmd_dic["filename"]
         filesize = cmd_dic["size"]
+        cwd = str(os.getcwd())+'/'+filename
+        print(cwd)
         if os.path.isfile(filename):
-            f = open(filename + ".new","wb")
+            f = open(cwd + ".new","wb")
         else:
-            f = open(filename , "wb")
+            f = open(cwd , "wb")
 
         self.request.send(b"200 ok")
         received_size = 0
@@ -38,7 +40,7 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
                 print("err",e)
                 break
 if __name__ == "__main__":
-    HOST, PORT = "localhost", 9999
+    HOST, PORT = "localhost", 8888
     # Create the server, binding to localhost on port 9999
     server = socketserver.ThreadingTCPServer((HOST, PORT), MyTCPHandler)
     server.serve_forever()
