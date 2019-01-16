@@ -23,42 +23,47 @@ def search_string(filename,string):
             return string
 
 def get_process_files(root_dir):
-    cur_dir=os.path.abspath(root_dir)
-    file_list=os.listdir(cur_dir)
-    #print (file_list)
+
+    file_list = []
     process_list=[]
     picture_list=[]
     picturename_list = []
+
+    for root, dirs, files in os.walk(root_dir, topdown=False):
+        for name in files:
+            print(os.path.join(root, name))#文件
+            file_list.append(os.path.join(root, name))
+        for name in dirs:
+            print(os.path.join(root, name))#文件夹
+
     for file in file_list:
-        fullfile=cur_dir+"\\"+file
-        if os.path.isfile(fullfile):
-            if endWith(fullfile,'.json','.txt','.ts') ==True:
-                process_list.append(fullfile)
-            if endWith(fullfile,'.png','.jpg') ==True:
-                picture_list.append(fullfile)
-                picturename_list.append(os.path.basename(fullfile).split('.',1)[0])
-        elif os.path.isdir(fullfile):
-            dir_extra_list=get_process_files(fullfile)
+        if os.path.isfile(file):
+            if endWith(file,'.json','.txt','.ts') ==True:
+                process_list.append(file)
+            if endWith(file,'.png','.jpg') ==True:
+                picture_list.append(file)
+        elif os.path.isdir(file):
+            dir_extra_list=get_process_files(file)
             if len(dir_extra_list)!=0:
                 for x in dir_extra_list:
                     process_list.append(x)
-    return process_list,picture_list,picturename_list
+    return process_list,picture_list
  
 def count_files(root_dir):
         temp=get_process_files(root_dir)
         process_list=temp[0]
         picture_list=temp[1]
-        picturename_list=temp[2]
-        #print('\n\nprocess_list=',process_list,'\n\npicture_list=',picture_list,'\n\npicturename_list=',picturename_list)
-        for num in range(len(picturename_list)):
-            string = picturename_list[num]
+        #print('\n\nprocess_list=',process_list,'\n\npicture_list=',picture_list)
+        for num in range(len(picture_list)):
+            string = os.path.basename(picture_list[num]).split('.',1)[0]
             for files in process_list:
                 #print(files,string)
                 if search_string(files,string) != string:
-                    print('删除',string)
+                    if os.path.exists(picture_list[num]):
+                        os.remove(picture_list[num])
+                        print('deleted',picture_list[num],string)
  
  
 if __name__=='__main__':
         root_dir=r'E:\gitclone\VUL-project\Rename'#目录
- 
         count_files(root_dir)
