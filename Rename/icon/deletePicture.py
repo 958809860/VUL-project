@@ -1,7 +1,8 @@
 #!/usr/bin/python
 #-*- coding: utf-8 -*-
 
-import os,sys
+import os,sys,shutil
+movepath = r'E:\gitclone\VUL-project\Rename\icon\新建文件夹'
 
 #根据文件扩展名判断文件类型
 def endWith(s,*endstring):
@@ -10,18 +11,6 @@ def endWith(s,*endstring):
         return True
     else:
         return False
-
-def search_string(filename,string):
-    with open(filename,'r+',encoding = 'utf-8') as file:
-            lines=file.readlines()
-    file.close()
-
-    for i in lines:
-        i=i.strip()
-        if i.find(string) != -1:
-            print (filename,string)
-            return string
-
 def get_process_files(root_dir):
 
     file_list = []
@@ -30,14 +19,15 @@ def get_process_files(root_dir):
 
     for root, dirs, files in os.walk(root_dir, topdown=False):
         for name in files:
-            print(os.path.join(root, name))#文件
+            print('存在的文件：\n',os.path.join(root, name))#文件
             file_list.append(os.path.join(root, name))
         for name in dirs:
-            print(os.path.join(root, name))#文件夹
+            # print('存在的文件：\n'os.path.join(root, name))#文件夹
+            pass
 
     for file in file_list:
         if os.path.isfile(file):
-            if endWith(file,'.json','.txt','.ts') ==True:
+            if endWith(file,'.json','.ts') ==True:
                 process_list.append(file)
             if endWith(file,'.png','.jpg') ==True:
                 picture_list.append(file)
@@ -47,21 +37,56 @@ def get_process_files(root_dir):
                 for x in dir_extra_list:
                     process_list.append(x)
     return process_list,picture_list
- 
+
+def findstring (filename,string):
+
+    document = open(filename, 'r+', encoding = 'utf-8')
+    for each_line in document:
+        if each_line.find(string) != -1:   
+            return True
+    document.close()
+
+
+
+def search_string(filename,string):
+    if string.find('_') != -1:
+        lenstring = len(string.split('_'))
+        movefilename = "_".join(string.split('_')[0:(lenstring-1)])  #将最后的_[]截掉
+        #print('movefilename',movefilename)
+        if findstring(filename,movefilename) == True:
+            return True
+        else:
+            if search_string(filename,movefilename) == True:
+                return True
+
+
+
 def count_files(root_dir):
         temp=get_process_files(root_dir)
-        process_list=temp[0]
-        picture_list=temp[1]
+        process_list=temp[0]  #所有json，ts文件的路径
+        picture_list=temp[1]  #所有png，jpg文件的路径
         #print('\n\nprocess_list=',process_list,'\n\npicture_list=',picture_list)
         for num in range(len(picture_list)):
-            string = os.path.basename(picture_list[num]).split('.',1)[0]
+            string = os.path.basename(picture_list[num]).split('.',1)[0] #获得一个png或jpg文件名
+            account = 0
             for files in process_list:
                 #print(files,string)
-                if search_string(files,string) != string:
-                    if os.path.exists(picture_list[num]):
-                        os.remove(picture_list[num])
-                        print('deleted',picture_list[num],string)
+                if findstring(files,string) == True:                        
+                    print('used:',string)
+
+                    break
+                else:
+                    if search_string(files,string) == True:
+                        print('used:',string)
+                        break
+                    else:
+                        if account == len(process_list)-1:
+                            shutil.move(picture_list[num],movepath)
+                            print('removed:',string,picture_list[num])
+                account += 1
+
  
 if __name__=='__main__':
-    root_dir=r'E:\gitclone\VUL-project\Rename'#目录
+    root_dir=r'E:\gitclone\VUL-project\Rename\icon\MahjongLobby_XDZPK'#目录
+
     count_files(root_dir)
