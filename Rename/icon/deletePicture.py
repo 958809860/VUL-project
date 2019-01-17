@@ -19,7 +19,7 @@ def get_process_files(root_dir):
 
     for root, dirs, files in os.walk(root_dir, topdown=False):
         for name in files:
-            print('存在的文件：\n',os.path.join(root, name))#文件
+            #print('存在的文件：\n',os.path.join(root, name))#文件
             file_list.append(os.path.join(root, name))
         for name in dirs:
             # print('存在的文件：\n'os.path.join(root, name))#文件夹
@@ -27,7 +27,7 @@ def get_process_files(root_dir):
 
     for file in file_list:
         if os.path.isfile(file):
-            if endWith(file,'.json','.ts') ==True:
+            if endWith(file,'.ts','.exml') ==True:
                 process_list.append(file)
             if endWith(file,'.png','.jpg') ==True:
                 picture_list.append(file)
@@ -61,10 +61,12 @@ def search_string(filename,string):
 
 
 
-def count_files(root_dir):
+def count_files(root_dir,root_dir1,root_dir2):
         temp=get_process_files(root_dir)
-        process_list=temp[0]  #所有json，ts文件的路径
-        picture_list=temp[1]  #所有png，jpg文件的路径
+        temp1=get_process_files(root_dir1)
+        temp2=get_process_files(root_dir2)
+        process_list=temp[0] + temp1[0] + temp2[0]  #所有json，ts文件的路径
+        picture_list=temp2[1]#所有png，jpg文件的路径
         #print('\n\nprocess_list=',process_list,'\n\npicture_list=',picture_list)
         for num in range(len(picture_list)):
             string = os.path.basename(picture_list[num]).split('.',1)[0] #获得一个png或jpg文件名
@@ -87,6 +89,7 @@ def count_files(root_dir):
 
  
 if __name__=='__main__':
-    root_dir=r'E:\gitclone\VUL-project\Rename\icon\MahjongLobby_XDZPK'#目录
-
-    count_files(root_dir)
+    root_dir=r'E:\gitclone\VUL-project\Rename\icon\MahjongLobby_XDZPK\Egret\src'#TS文件路径
+    root_dir1=r'E:\gitclone\VUL-project\Rename\icon\MahjongLobby_XDZPK\Egret\resource\lobbySkins'#EXML文件路径
+    root_dir2=r'E:\gitclone\VUL-project\Rename\icon\MahjongLobby_XDZPK\resource'#图片路径
+    count_files(root_dir,root_dir1,root_dir2)
