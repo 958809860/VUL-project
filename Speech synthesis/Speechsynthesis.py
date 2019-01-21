@@ -1,14 +1,14 @@
 import os
 from aip import AipSpeech
 
-APP_ID = '*********'
-API_KEY = '************'
-SECRET_KEY = '*************'
+APP_ID = '15117990'
+API_KEY = 'WgbHCqDjtGx2RcX4vYtxqUmp'
+SECRET_KEY = '2FGPckuKXGEsMe2kE30EikAPBUURSGbG'
 
 client = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
 
 TXT = r'./eg.txt'
-document = open(TXT, 'r+')
+document = open(TXT, 'r+',encoding = 'utf-8')
 
 def speech(txt,line):
     result  = client.synthesis(txt, 'zh', 1, {
