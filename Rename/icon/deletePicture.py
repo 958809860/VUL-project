@@ -23,7 +23,7 @@ def get_process_files(root_dir):    #获取文件路径
             #print('存在的文件：\n',os.path.join(root, name))#文件
             file_list.append(os.path.join(root, name))
         for name in dirs:
-            # print('存在的文件：\n'os.path.join(root, name))#文件夹
+            # print('存在的文件夹：\n'os.path.join(root, name))#文件夹
             pass
 
     for file in file_list:
