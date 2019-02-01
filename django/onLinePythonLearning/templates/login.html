@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>登录页面</title>
+    <style>
+        div{
+            text-align: center;
+            border: 1px solid;
+            width: 300px;
+            /* margin-left: 450px;
+            margin-top: 200px; */
+        }
+        .user,.pwd{
+            width: 80px;border: 1px
+        }
+        input [type="submit"]{
+            color: red;
+            background-color: yellow;
+            border-radius: 5px;
+        }
+        span{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+<div class="loginPage">
+    <form method = 'POST' action = "/check/login/">
+        {% csrf_token %}
+        <div>
+            <lable for = "user">用户名1:</lable>
+            <input type="text" name="usr" id="usr" placeholder="请输入用户名" required = "required"/>
+            <br />
+            <lable for = "pwd">密码:</lable>
+            <input type="password" name="pwd" id="pwd" placeholder="请输入密码" required = "required"/>
+            <!-- <br /> <input type="submit" value="登录"></input> -->
+            <br>
+            <input type="submit" value="登录"  />
+            <br> {%if msg%} <span>{{msg}}</span> {%endif%}
+        </div>
+    </form>
+</div>
+
+</body>
