@@ -24,7 +24,6 @@
         }
     </style>
 </head>
-
 <body>
 <div class="loginPage">
     <form method = 'POST' action = "/check/login/">
@@ -42,5 +41,20 @@
         </div>
     </form>
 </div>
-
+<script>
+    (function() {
+        var OriginTitile = document.title, titleTime;
+        document.addEventListener('visibilitychange', function() {
+            if (document.hidden) {
+                document.title = '别走，来登录';
+                clearTimeout(titleTime);
+            } else {
+                document.title = '对，就这里，下面登录';
+                titleTime = setTimeout(function() {
+                    document.title = OriginTitile;
+                },2000);
+            }
+        });
+    })();
+    </script>
 </body>
