@@ -64,8 +64,8 @@ class CompareImage():
 
         pre = round((sub_data / (x * y)), 6)
         # print(str(pre * 100) + '%')
-        print('Compare the image result is: ' + str(pre))
+        # print('Compare the image result is: ' + str(pre))
         return pre
 
-compare_image = CompareImage()
-compare_image.compare_image("1.png", "2.png")
+# compare_image = CompareImage()
+# compare_image.compare_image(r"E:\gitclone\VUL-project\Imagesimilarity\1.png", r"E:\gitclone\VUL-project\Imagesimilarity\2.png")
