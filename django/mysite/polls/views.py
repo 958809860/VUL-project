@@ -16,25 +16,18 @@ def check_login(f):
 def login(request):
     # 包含用户提交的所有信息
     # 获取用户提交方法
-    # print(request.method)
     error_msg = ""
     if request.method == "POST":
         # 获取用户通过POST提交过来的数据
         user = request.POST.get('user',None)
         pwd = request.POST.get('pwd',None)
         print(user,pwd)
-        # twz = models.message.objects.create(username=user, password=pwd) #数据库写入
-        # twz.save()
-        
-        # return render(request,'login.html', {'error_msg': error_msg})
         try:
             getpwd = models.message.objects.get(username = user).password
             print(getpwd)
             if str(getpwd) == str(pwd):
                 request.session['is_login']='1' 
                 request.session['username']=user
-                
-                # return redirect('https://www.baidu.com/')   #跳转网页
                 return redirect('/addmessage/')
         except BaseException:
             error_msg = "用户名或密码错误"   
@@ -52,6 +45,6 @@ def addmessage(request):
         estimatedTime = request.POST.get('estimatedTime', None)
         remainingTime = request.POST.get('remainingTime', None)
         remark = request.POST.get('remark', None)
-        twz = models.addmessage.objects.create(username=username, project=project, desc=desc, estimatedTime=estimatedTime, remainingTime=remainingTime, remark=remark) #数据库写入
+        twz = models.addmessage.objects.create(username=username, project=project, desc=desc, estimatedTime=estimatedTime, remainingTime=remainingTime, remark=remark) #t提交内容进行数据库写入
         twz.save()
     return render(request,'addmessage.html',{'username': username})
