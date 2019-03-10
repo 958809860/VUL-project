@@ -19,4 +19,5 @@ urlpatterns = [
     #path('',views.index),
     path('login/',views.login),
     path('addmessage/',views.addmessage),
+    path('addlogshow/',views.addlogshow),
 ]

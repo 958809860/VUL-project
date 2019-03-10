@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>晨会系统提交</title>
+    <title>历史提交 </title>
     <style>
         * { margin: 0; padding: 0; }
         html { height: 100%; }
@@ -36,42 +36,45 @@
     </style>
 </head>
 <body>
-    <div class="dowebok">
+    <!-- <div class="dowebok"> -->
     <!--<div class="logo"></div>-->
     <span>{{ username }}</span>
     <form method="post">
         {% csrf_token %}
-        <p>
-            <div class="form-item">
-                <input id="project" name="project" type="text" autocomplete="off" placeholder="*项目名称"/>
-            </div>
-        </p>
-        <p>
-            <div class="form-item">
-                <input id="desc" name="desc" type="text" autocomplete="off" placeholder="*任务描述"/>
-            </div>
-        </p>
-        <p>
-            <div class="form-item">
-                <input id="estimatedTime" name="estimatedTime" type="text" autocomplete="off" placeholder="*预估时间"/>
-            </div>
-        </p>
-        <p>
-            <div class="form-item">
-                <input id="remainingTime" name="remainingTime" type="text" autocomplete="off" placeholder="*剩余时间"/>
-            </div>
-        </p>
-                <p>
-            <div class="form-item">
-                <input id="remark" name="remark" type="text" autocomplete="off" placeholder="备注"/>
-                <span>{{ msg }}</span>
-            </div>
-            
-        </p>
-        <p>
-            <div class="form-item"><button id="submit">提交</button></div>
-        </p>
-            <a class="reg" href="/addlogshow/">历史提交</a>
+        <ul>
+            {% for row in result %}
+                <!-- <li>
+                    <!-- <a {{ row.username }}></a>
+                    <a {{ row.project }}></a>
+                    <a {{ row.desc }}></a>
+                    <a {{ row.estimatedTime }}></a>
+                    <a {{ row.remainingTime }}></a>
+                    <a {{ row.remark }}></a>
+                    <a >{{ row }}</a>
+                </li> -->
+                <table border="1">
+                        <tr>
+                            <th>id</th>
+                            <th>username</th>
+                            <th>project</th>
+                            <th>desc</th>
+                            <th>estimatedTime</th>
+                            <th>remainingTime</th>
+                            <th>remark</th>
+                        </tr>
+                        <tr>
+                            <td>{{ row.id}}</td>
+                            <td>{{ row.username }}</td>
+                            <td>{{ row.project }}</td>
+                            <td>{{ row.desc }}</td>
+                            <td>{{ row.estimatedTime }}</td>
+                            <td>{{ row.remainingTime }}</td>
+                            <td>{{ row.remark }}</td>
+                        </tr>
+            </table>
+            {% endfor %}
+        </ul>
+            <a class="reg" href="/addmessage/">返回</a>
     </form>
     </div>
 </body>

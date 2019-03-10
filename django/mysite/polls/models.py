@@ -18,13 +18,15 @@ class userinfo(models.Model):
     memo = models.TextField()
 
 class message(models.Model):
-    username = models.CharField(max_length=20)
-    password = models.CharField(max_length=15)
+    username = models.CharField(max_length=20,null=False)
+    password = models.CharField(max_length=15,null=False)
 
 class addmessage(models.Model):
-    username = models.CharField(max_length=50)
-    project = models.CharField(max_length=50)
-    desc = models.CharField(max_length=50)
-    estimatedTime = models.CharField(max_length=50)
-    remainingTime = models.CharField(max_length=50)
+    username = models.CharField(max_length=50,null=False)
+    project = models.CharField(max_length=50,null=False)
+    desc = models.CharField(max_length=50,null=False)
+    estimatedTime = models.IntegerField(null=False)
+    remainingTime = models.IntegerField(null=False)
     remark = models.CharField(max_length=50)
+    create_time = models.DateTimeField(auto_now_add=True)
+    update_time = models.DateTimeField(auto_now=True)
