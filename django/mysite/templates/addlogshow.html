@@ -41,8 +41,6 @@
     <span>{{ username }}</span>
     <form method="post">
         {% csrf_token %}
-        <ul>
-            {% for row in result %}
                 <!-- <li>
                     <!-- <a {{ row.username }}></a>
                     <a {{ row.project }}></a>
@@ -52,7 +50,10 @@
                     <a {{ row.remark }}></a>
                     <a >{{ row }}</a>
                 </li> -->
-                <table border="1">
+                <div style="align-content: center;width: 100%;text-align:center">
+                    历史提交
+                </div>
+                <table border="1" style="width: 1280;margin:0 auto;">
                         <tr>
                             <th>id</th>
                             <th>username</th>
@@ -62,19 +63,19 @@
                             <th>remainingTime</th>
                             <th>remark</th>
                         </tr>
+                        {% for row in result %}
                         <tr>
-                            <td>{{ row.id}}</td>
-                            <td>{{ row.username }}</td>
-                            <td>{{ row.project }}</td>
-                            <td>{{ row.desc }}</td>
-                            <td>{{ row.estimatedTime }}</td>
-                            <td>{{ row.remainingTime }}</td>
+                            <td width = 50px style= "text-align:center" >{{ row.id }}</td>
+                            <td width = 200px style= "text-align:center">{{ row.username }}</td>
+                            <td width = 200px>{{ row.project }}</td>
+                            <td width = 400px>{{ row.desc }}</td>
+                            <td width = 150px style= "text-align:center">{{ row.estimatedTime }}</td>
+                            <td width = 150px style= "text-align:center">{{ row.remainingTime }}</td>
                             <td>{{ row.remark }}</td>
                         </tr>
-            </table>
-            {% endfor %}
-        </ul>
-            <a class="reg" href="/addmessage/">返回</a>
+                        {% endfor %}
+            </table> 
+            <a class="reg" href="/addmessage/" style="display: block; text-align: center;"">返回</a>
     </form>
     </div>
 </body>
