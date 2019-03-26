@@ -39,29 +39,23 @@
     <!-- <div class="dowebok"> -->
     <!--<div class="logo"></div>-->
     <span>{{ username }}</span>
-    <form method="post">
+    <form method="post" >
         {% csrf_token %}
-                <!-- <li>
-                    <!-- <a {{ row.username }}></a>
-                    <a {{ row.project }}></a>
-                    <a {{ row.desc }}></a>
-                    <a {{ row.estimatedTime }}></a>
-                    <a {{ row.remainingTime }}></a>
-                    <a {{ row.remark }}></a>
-                    <a >{{ row }}</a>
-                </li> -->
                 <div style="align-content: center;width: 100%;text-align:center">
                     历史提交
                 </div>
                 <table border="1" style="width: 1280;margin:0 auto;">
                         <tr>
-                            <th>id</th>
-                            <th>username</th>
-                            <th>project</th>
-                            <th>desc</th>
-                            <th>estimatedTime</th>
-                            <th>remainingTime</th>
-                            <th>remark</th>
+                            <th>编号</th>
+                            <th>负责人</th>
+                            <th>项目</th>
+                            <th>描述</th>
+                            <th>预估时间</th>
+                            <th>剩余时间</th>
+                            <th>备注</th>
+                            <th>提交编号</th>
+                            <th>修改剩余时间</th>
+                            <th>操作</th>
                         </tr>
                         {% for row in result %}
                         <tr>
@@ -72,11 +66,35 @@
                             <td width = 150px style= "text-align:center">{{ row.estimatedTime }}</td>
                             <td width = 150px style= "text-align:center">{{ row.remainingTime }}</td>
                             <td>{{ row.remark }}</td>
+                            <form  method="post">
+                                {% csrf_token %}
+                                <td width = 50px style= "text-align:center">
+                                    <input id = "id" name="id" type="text" autocomplete="off"  value={{ row.id }} >
+                                </td>
+                                <td width = 50px style= "text-align:center">
+                                    <input id="time" name="time" type="text" autocomplete="off" placeholder={{ msg }}/>
+                                </td>
+                                <td width = 50px style= "text-align:center">
+                                    <button id="submit">提交</button>
+                                </td>
+                            </form>
+                            <!-- <td width = 100px style= "text-align:center"><button  id = {{ row.id }}>编辑</button></td> -->
+                            <!-- <p id="demo"></p> -->
                         </tr>
                         {% endfor %}
             </table> 
             <a class="reg" href="/addmessage/" style="display: block; text-align: center;"">返回</a>
     </form>
     </div>
+    <script>
+        function addEdit(id){
+            var time =prompt("剩余时间修改",id);
+            if (time!=null && time!=""){
+                // document.getElementById("demo").innerHTML=x;
+                alert(time);
+                return id, time
+            }
+        }
+    </script>
 </body>
 </html>

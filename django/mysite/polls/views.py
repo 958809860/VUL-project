@@ -61,4 +61,14 @@ def addlogshow(request):
     username = request.session.get('username')
     result = models.addmessage.objects.filter(username=username)    #取出id和user列，并生成一个列表
     print(result)
-    return render(request,'addlogshow.html',{'result': result})
+    msg = "修改剩余时间"
+    if request.method == "POST":
+        id = request.POST.get('id',None)
+        time = request.POST.get('time',None)
+        print(id,type(id),time,type(time))
+        if not id.strip() or not time.strip():
+            msg = "请正确输入剩余时间及编号"
+            return render(request,'addlogshow.html',{'result': result,'msg': msg})              
+        else:
+            models.addmessage.objects.filter(id=id).update(remainingTime=time)
+    return render(request,'addlogshow.html',{'result': result,'msg': msg})
