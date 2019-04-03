@@ -46,8 +46,8 @@ def findstring(file):
         document.close()
 
 if __name__=='__main__':
-        stringlist = sys.argv[1:]
-        root_dir = r"E:\gitclone\VUL-project"
+        root_dir = sys.argv[1]  #路径 + 1检索词 + 2检索词 +....
+        stringlist = sys.argv[2:]
         file_list = get_process_files(root_dir)
         # print(file_list)
         for i in file_list:
