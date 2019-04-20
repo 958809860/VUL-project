@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'sulo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'djangotest',
+        'NAME': 'sulo_product',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': 'localhost',

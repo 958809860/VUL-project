@@ -4,5 +4,10 @@ from .import models
 from functools import wraps
 # Create your views here.
 def index(request):
-    # return HttpResponse("Hello, world. You're at the polls index.")
-    return render(request, 'file.html')
+    productList = models.product.objects.all().values('id','name','desc')
+    # productLink = models.downloadlink.objects.get(id=productList.id)
+    print (type(productList))
+    # productList['link'] = productLink
+    result = productList
+    print (result)
+    return render(request, 'file.html',{'result': result})
