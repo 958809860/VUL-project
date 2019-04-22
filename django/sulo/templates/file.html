@@ -36,28 +36,6 @@
     </style>
 </head>
 <body>
-    <!--<div class="dowebok">-->
-        <div class="form-item">download</div>
-        <a class="reg" href="http://sulo-support.oss-cn-hongkong.aliyuncs.com/Instructions/item4.png" style="display: block; text-align: center;">测试资源</a>
-    <!--<div class="logo"></div>-->
-    <!--<form action="/login/" method="post">-->
-        <!--{% csrf_token %}-->
-        <!--<p>-->
-            <!--<div class="form-item">-->
-                <!--<input id="user" name="user" type="text" autocomplete="off" placeholder="用户名"/>-->
-            <!--</div>-->
-        <!--</p>-->
-        <!--<p>-->
-            <!--<div class="form-item">-->
-                <!--<input id="pwd" name="pwd" type="password" autocomplete="off" placeholder="密码"/>-->
-                <!--<span>{{ error_msg }}</span>-->
-            <!--</div>-->
-        <!--<div class="form-item"><button id="submit">登 录</button></div>-->
-            <!--<div class="reg-bar">-->
-                    <!--<a class="reg" href="javascript:">立即注册</a>-->
-                    <!--<a class="forget" href="javascript:">忘记密码</a>-->
-            <!--</div>-->
-        <!--</p>-->
     </form>
             <form >
         <!--{% csrf_token %}-->
@@ -71,17 +49,25 @@
                             <th>描述</th>
                             <th>下载</th>
                         </tr>
-                        {% for row in result %}
-                        <tr>
-                            <td width = 50px style= "text-align:center" >{{ row.id }}</td>
-                            <td width = 200px style= "text-align:center">{{ row.name }}</td>
-                            <td width = 400px>{{ row.desc }}</td>
-                            <td width = 100px style= "text-align:center"><button  href=http://sulo-support.oss-cn-hongkong.aliyuncs.com/Instructions/item4.png id = {{ row.id }}>下载</button></td>
-                            <!-- <p id="demo"></p> -->
-                        </tr>
+                        {% for a in result1 %}
+                            {% for row in a %}
+                            <tr>
+                                <td width = 50px style= "text-align:center" >{{ row.id }}</td>
+                                <td width = 200px style= "text-align:center">{{ row.name }}</td>
+                                <td width = 400px>{{ row.desc }}</td>
+                                <td width = 400px>
+                                {% for b in result2 %}
+                                    {% for x in b %}
+                                        {% if x.product_id == row.id %}
+                                            <a class="reg" href={{x.product_link}} style="display: block; text-align: center;">download</a>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endfor %}
+                                </td>
+                            </tr>
+                            {% endfor %}
                         {% endfor %}
             </table>
-            <!--<a class="reg" href="/addmessage/" style="display: block; text-align: center;"">返回</a>-->
     </form>
 
 </body>
