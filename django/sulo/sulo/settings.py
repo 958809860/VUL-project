@@ -25,7 +25,7 @@ SECRET_KEY = '6yq)n(amsxypqi@rh(ex9ouz)6hls+83y6no8g**kgo^^7czm+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['106.13.90.101','127.0.0.1']
+ALLOWED_HOSTS = ['106.13.90.101','127.0.0.1','www.sulo-support.com']
 
 
 # Application definition
