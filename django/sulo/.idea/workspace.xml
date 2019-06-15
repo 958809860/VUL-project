@@ -9,37 +9,6 @@
       <change beforePath="$PROJECT_DIR$/../../Speech synthesis/Speechsynthesis.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Speech synthesis/Speechsynthesis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Speech synthesis/eg.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Speech synthesis/eg.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../mysite/polls/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../mysite/polls/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/download/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/download/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/download/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/download/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/download/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/download/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/fonts/fontawesome-webfont.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/backgroud.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/banner.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/emil.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/g1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/g2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/g3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/g4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/g5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/g6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/g7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/login.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/password.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/team.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/team1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/team2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sulo/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/sulo/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/file.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../test.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
