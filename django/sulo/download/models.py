@@ -14,4 +14,4 @@ class downloadlink(models.Model):
     id = models.AutoField(primary_key=True)
     link_id = models.PositiveIntegerField(null=False)
     product_id = models.PositiveIntegerField(null=False)
-    product_link = models.CharField(max_length=10000,null=False)
+    product_link = models.CharField(max_length=800,null=False)
