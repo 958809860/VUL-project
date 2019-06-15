@@ -7,11 +7,11 @@ admin.site.site_header="商品资料维护"
 admin.site.index_title="商品"
 
 class productList(admin.ModelAdmin):
-    list_display = ('id','name', 'desc', 'create_time', 'update_time', 'remark') # list
+    list_display = ('product_id','name', 'desc', 'create_time', 'update_time', 'remark') # list
 admin.site.register(product, productList)
 
 class downloadlinkList(admin.ModelAdmin):
-    list_display = ('id', 'product_id', 'product_link')
+    list_display = ('link_id', 'product_id', 'product_link')
 admin.site.register(downloadlink, downloadlinkList)
 
 # Create your models here.
