@@ -1,4 +1,4 @@
-import requests,os
+import requests,os,json
 
 formdata = {
     "symbol":"SH600198", 			#代码
@@ -35,4 +35,5 @@ for k,v in headers.items():
 
 print(headers2)
 response = requests.post(url ,data = formdata, headers = headers2)
-print (response.text)
+responseDict = json.loads(response.text)
+print (responseDict)
